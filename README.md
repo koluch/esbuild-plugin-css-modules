@@ -7,7 +7,7 @@ Plugin for [esbuild](https://esbuild.github.io/) to support css-modules
 ## Install
 
 ```bash
-npm i esbuild esbuild-plugin-css-modules
+npm i -D esbuild esbuild-plugin-css-modules
 ```
 
 ## Usage example

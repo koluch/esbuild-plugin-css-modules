@@ -22,6 +22,7 @@
   "keywords": [
     "esbuild",
     "plugin",
+    "css",
     "css-modules"
   ],
   "dependencies": {
