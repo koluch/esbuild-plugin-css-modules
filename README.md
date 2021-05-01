@@ -14,7 +14,7 @@ npm i -D esbuild esbuild-plugin-css-modules
 
 Create file `src/test.module.css`:
 
-```scss
+```css
 .localName {
   background: red;
 }
@@ -78,7 +78,6 @@ When instantiating plugin you can pass an optional objects with options. This ob
 interface Options {
   localIdentName?: string;
   extension?: string;
-  rootDir?: string;
 }
 ```
 
