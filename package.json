@@ -4,8 +4,11 @@
   "description": "Plugin for esbuild with partial support of css-modules",
   "main": "index.ts",
   "scripts": {
+    "all": "npm-run-all --serial --print-label",
     "build": "tsc",
-    "test": "npx ts-node node_modules/.bin/tape 'tests/*.tests.ts' | npx tap-spec"
+    "test:unit": "npx ts-node node_modules/.bin/tape 'tests/*.tests.ts' | npx tap-spec",
+    "test": "npm run all build test:*",
+    "prepare": "npm run build"
   },
   "author": {
     "name": "Nikolai Mavrenkov",
@@ -36,6 +39,7 @@
     "@types/tape": "^4.13.0",
     "esbuild": "^0.8.32",
     "husky": "^4.3.7",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.2.1",
     "tap-spec": "^5.0.0",
     "tape": "^5.2.2",
@@ -50,5 +54,13 @@
     "*.ts": [
       "npx prettier --write"
     ]
-  }
+  },
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "index.d.ts.map",
+    "helpers.js",
+    "helpers.d.ts",
+    "helpers.d.ts.map"
+  ]
 }
