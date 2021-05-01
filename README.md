@@ -2,12 +2,12 @@
 
 ![Node.js CI](https://github.com/koluch/esbuild-plugin-css-modules/workflows/Node.js%20CI/badge.svg)
 
-Plugin for [esbuild](https://esbuild.github.io/) to support CSS-modules
+Plugin for [esbuild](https://esbuild.github.io/) to support css-modules
 
 ## Install
 
 ```bash
-npm i esbuild esbuild-plugin-sass
+npm i esbuild esbuild-plugin-css-modules
 ```
 
 ## Usage example
