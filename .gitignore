@@ -1,5 +1,3 @@
 node_modules
 .output
-/*.js
-/*.d.ts
-/*.d.ts.map
+/lib
