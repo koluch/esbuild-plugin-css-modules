@@ -4,6 +4,7 @@ import tmp from "tmp";
 import path from "path";
 import csstree from "css-tree";
 import { Plugin } from "esbuild";
+import slash from "slash";
 
 import {
   escapeClassName,
@@ -125,8 +126,10 @@ export = (options: Options = {}): Plugin => ({
       // @ts-ignore
       await writeFile(tmpFilePath, csstree.generate(ast));
 
+      const importPath =
+        process.platform == "win32" ? slash(tmpFilePath) : tmpFilePath;
       let contents = `
-        import "${tmpFilePath}";
+        import "${importPath}";
         const result = ${JSON.stringify(classMap)};
         export default result;
       `;
