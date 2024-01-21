@@ -30,14 +30,11 @@ export = (options: Options = {}): Plugin => ({
   name: "css-modules",
   setup: function (build) {
     const { extension = ".module.css", localIdentName = "[hash]" } = options;
-    const rootDir = process.cwd();
     const filter = new RegExp(`.\/.+${extension.replace(/\./g, "\\.")}$`);
 
     const tmpDirPath = tmp.dirSync().name;
 
     build.onLoad({ filter }, async (args) => {
-      const relativeDir = path.relative(rootDir, path.dirname(args.path));
-
       const fileContent = (await readFile(args.path)) as Buffer;
 
       const baseName = path.basename(args.path, extension);
@@ -117,7 +114,7 @@ export = (options: Options = {}): Plugin => ({
       const baseFileName = path.basename(args.path, extension);
       const tmpFilePath = path.resolve(
         tmpDirPath,
-        relativeDir,
+        path.relative("/", path.dirname(args.path)),
         `${baseFileName}.css`
       );
 
