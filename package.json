@@ -1,6 +1,6 @@
 {
   "name": "esbuild-plugin-css-modules",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Plugin for esbuild with partial support of css-modules",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
