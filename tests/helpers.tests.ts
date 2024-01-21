@@ -11,8 +11,8 @@ test("helpers: escapeClassName", function (t) {
 
 test("helpers: makeNameHash", function (t) {
   t.equals(
-    makeNameHash("default-hash-md4"),
-    "h154498c8f95283c6db4ebbc94bc80e69"
+    makeNameHash("default-hash-sha256"),
+    "ha62e9f3c8204092baa7c42b71bb51807"
   );
   t.equals(
     makeNameHash("hash-sha256", 32, "sha256"),
@@ -49,7 +49,10 @@ test("helpers: interpolatePattern", function (t) {
     "111222"
   );
   t.equals(
-    interpolatePattern("[first:p1:p2]", (name, params) => name + ' -> ' + params.join(',')),
+    interpolatePattern(
+      "[first:p1:p2]",
+      (name, params) => name + " -> " + params.join(",")
+    ),
     "first -> p1,p2"
   );
   t.end();

@@ -41,22 +41,18 @@ export const SUPPORTED_DIGESTS = ["hex", "base64"] as const;
 export type HashType = typeof SUPPORTED_HASHES[number];
 export type HashDigest = typeof SUPPORTED_DIGESTS[number];
 
-export function isSupportedHashType(
-  raw: string
-): raw is HashType {
+export function isSupportedHashType(raw: string): raw is HashType {
   return SUPPORTED_HASHES.indexOf(raw as HashType) !== -1;
 }
 
-export function isSupportedHashDigest(
-  raw: unknown
-): raw is HashDigest {
+export function isSupportedHashDigest(raw: unknown): raw is HashDigest {
   return SUPPORTED_DIGESTS.indexOf(raw as HashDigest) !== -1;
 }
 
 export function makeNameHash(
   name: string,
   maxLength: number = 32,
-  type: HashType = "md4",
+  type: HashType = "sha256",
   digest: HashDigest = "hex"
 ) {
   const buffer = Buffer.from(name, "utf8");
