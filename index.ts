@@ -4,6 +4,8 @@ import tmp from "tmp";
 import path from "path";
 import csstree from "css-tree";
 import { Plugin } from "esbuild";
+import { PathLike } from "fs";
+import { Buffer } from "buffer";
 
 import {
   escapeClassName,
@@ -14,8 +16,6 @@ import {
   SUPPORTED_DIGESTS,
   SUPPORTED_HASHES,
 } from "./helpers";
-import { PathLike } from "fs";
-import { Buffer } from "buffer";
 
 const writeFile = util.promisify<PathLike, any>(fs.writeFile);
 const readFile = util.promisify(fs.readFile);
